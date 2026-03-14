@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>😈 तेरा फोन हैक हो गया भाई! 😱</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      color: #ff0000;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      user-select: none;
+    }
+    h1 { font-size: 3.5rem; margin: 10px; animation: blink 1s infinite; }
+    p { font-size: 1.4rem; margin: 20px; color: #0f0; }
+    .alert { font-size: 2rem; color: yellow; margin: 30px; }
+    button {
+      font-size: 1.8rem;
+      padding: 20px 50px;
+      margin: 20px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+
+  <h1>⚠️ SYSTEM COMPROMISED ⚠️</h1>
+  <p class="alert">तेरा फोन हैक हो गया!<br>सारे डेटा डिलीट होने वाले हैं 😂</p>
+  
+  <button onclick="fakePanic()">Cancel कर के देख ना 😈</button>
+  <button onclick="moreScare()">Help! बचाओ!</button>
+
+  <p style="position: absolute; bottom: 20px; font-size: 1rem; color: #555;">
+    (hint: address bar में कुछ भी टाइप कर के नया टैब खोल ले, या swipe करके refresh कर 😏)
+  </p>
+
+  <script>
+    // Back/refresh attempt रोकने की कोशिश (मोबाइल में partial काम करता है)
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.go(1);  // forward push करके back रोकने की ट्रिक
+      alert("भाई भाग मत! अभी तो मजा शुरू हुआ है 😂");
+    };
+
+    // Exit confirm (कुछ ब्राउज़र में काम करता है)
+    window.onbeforeunload = function() {
+      return "सच में जा रहा है? तेरे memes डिलीट हो जाएंगे!";
+    };
+
+    // Fullscreen बनाने की कोशिश
+    function goFullScreen() {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    }
+    document.addEventListener('click', goFullScreen);
+
+    // Random scary alerts हर 6-10 सेकंड में
+    setInterval(() => {
+      const msgs = [
+        "VIRUS ACTIVATED! 😈",
+        "तेरे WhatsApp chats leak हो रहे हैं 😂",
+        "Battery 1% बाकी... explode होने वाला है!",
+        "भाई तू अभी तक यहाँ है? Respect!"
+      ];
+      alert(msgs[Math.floor(Math.random() * msgs.length)]);
+    }, 7000 + Math.random() * 5000);
+
+    function fakePanic() {
+      alert("Cancel नहीं होता भाई... अब क्या करेगा? 😭");
+      document.body.style.background = "#ff0000";
+      setTimeout(() => { document.body.style.background = "#000"; }, 800);
+    }
+
+    function moreScare() {
+      alert("Help? हाहाहा... कोई नहीं बचा सकता! 😂😂");
+    }
+
+    // Screen shake effect
+    function shake() {
+      document.body.style.animation = "shake 0.5s";
+      setTimeout(() => { document.body.style.animation = ""; }, 500);
+    }
+    setInterval(shake, 15000);
+  </script>
+
+  <style>
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+  </style>
+
+</body>
+</html>
